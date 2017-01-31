@@ -29,29 +29,29 @@ namespace BinaryConversionsGUI {
 
         private void FlipButton_Click (object sender, RoutedEventArgs e) {
             try {
-                ConvertedTextBox.Text = !TextFromUserBox.Text.Equals("") && ContainsNumsOnly(TextFromUserBox.Text) ? Flip(TextFromUserBox.Text) : "Error";
+                ConvertedTextBox.Text = !TextFromUserBox.Text.Equals("") && IsBinary(TextFromUserBox.Text) ? Flip(TextFromUserBox.Text) : "Error";
             } catch (Exception) {
                 ConvertedTextBox.Text = "Error";
             }
         }
 
         private void TransferButton_Click (object sender, RoutedEventArgs e) {
-            TextFromUserBox.Text = !ConvertedTextBox.Text.Equals("Error") ? ConvertedTextBox.Text.Replace(" ", "") : TextFromUserBox.Text;
+            TextFromUserBox.Text = !ConvertedTextBox.Text.Equals("Error") ? ConvertedTextBox.Text : TextFromUserBox.Text;
             ConvertedTextBox.Text = "";
         }
 
         public static Boolean ContainsNumsOnly (String S) {
-            return !new Regex("[^0-9]").IsMatch(S);
+            return !new Regex("[^0-9 ]").IsMatch(S);
         }
 
         public static Boolean IsBinary (String S) {
-            return !new Regex("[^01]").IsMatch(S);
+            return !new Regex("[^01 ]").IsMatch(S);
         }
 
         public static String ToBinary (String S) {
             int Count = 0;
             String Result = "";
-            int NumToConvert = Convert.ToInt32(S);
+            int NumToConvert = Convert.ToInt32(S.Replace(" ", ""));
 
             while (NumToConvert > 0) {
                 ++Count;
@@ -80,7 +80,7 @@ namespace BinaryConversionsGUI {
                     Flipped.Insert(0, c);
                     if (c.Equals('1')) copy = false;
                 } else {
-                    Flipped.Insert(0, c.Equals('1') ? '0' : '1');
+                    Flipped.Insert(0, c.Equals(' ') ? ' ' : c.Equals('1') ? '0' : '1');
                 }
             }
             return Flipped.ToString();
