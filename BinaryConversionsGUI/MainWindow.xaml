@@ -1,12 +1,22 @@
-﻿<Window x:Class="BinaryConversionsGUI.MainWindow"
+﻿<Window x:Name="Binary_Conversions" x:Class="BinaryConversionsGUI.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BinaryConversionsGUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
+        Title="Binary Conversions" Height="296.8" Width="455" ResizeMode="NoResize" SnapsToDevicePixels="True" Icon="C:\Users\dalelion\Pictures\BinaryConversionIcon.ico">
+    <Grid Margin="0,0,3.8,3.2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="406*"/>
+            <ColumnDefinition Width="39*"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="FlipButton" Content="Flip Bits" Margin="299,197,28.8,0" VerticalAlignment="Top" Height="43" Click="FlipButton_Click" Grid.ColumnSpan="2" FontSize="13" FontWeight="Medium" FontFamily="Questrial"/>
+        <Button x:Name="ToBinaryButton" Content="Conver To Binary" HorizontalAlignment="Left" Margin="159,197,0,0" VerticalAlignment="Top" Width="122" Height="43" Click="ToBinaryButton_Click" FontSize="13" FontWeight="Medium" FontFamily="Questrial"/>
+        <Button x:Name="ToDecimalButton" Content="Conver To Decimal" HorizontalAlignment="Left" Margin="24,197,0,0" VerticalAlignment="Top" Width="116" Height="42" Click="ToDecimalButton_Click" FontFamily="Questrial" FontWeight="Medium" FontSize="13"/>
+        <TextBox x:Name="ConvertedTextBox" HorizontalAlignment="Left" Height="48" Margin="24,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="392" IsReadOnly="True" ToolTip="This is the converted number" FontFamily="Questrial" FontSize="36" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="TextFromUserBox" HorizontalAlignment="Left" Height="48" Margin="24,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="392" ToolTip="Enter your number to convert here" FontFamily="Questrial" FontSize="36" AutomationProperties.IsRequiredForForm="True" Grid.ColumnSpan="2"/>
+        <Button x:Name="TransferButton" Content="6" HorizontalAlignment="Left" Height="25" Margin="204,78,0,0" VerticalAlignment="Top" Width="31" FontFamily="Marlett" FontSize="24" FontWeight="Bold" Click="TransferButton_Click"/>
+
     </Grid>
 </Window>
